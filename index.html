@@ -10,29 +10,31 @@
         <h1>A List of my Top 5 Postcards</h1>
         
         <div id="app" v-cloak>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Location</th>
-                        <th>Year</th>
-                        <th>Landmark</th>
-                        <th>Description</th>   
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr is="postcards-component">
-                        <postcards-component
-                        v-for="information in postcards"
-                        :class="{favPostcard: information.year===1995}"
-                        :rank="information.rank"
-                        :location="information.location"
-                        :year="information.year"
-                        :landmark="information.landmark"
-                        :description="information.description"></postcards-component>
-                    </tr>
-                </tbody>
-            </table>
+            
+            <div id="postcard-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Location</th>
+                            <th>Year</th>
+                            <th>Landmark</th>
+                            <th>Description</th>
+                        <tr>
+                    </thead>
+                    <tbody>
+                        <tr is="postcards-component"
+                            v-for="information in postcards"
+                            :class="{favPostcard: information.year===1995}"
+                            :rank="information.rank"
+                            :location="information.location"
+                            :year="information.year"
+                            :landmark="information.landmark"
+                            :description="information.description">
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             
             <div id="note">
                 <p>&#42;Note: Postcard in blue indicates my favorite one!</p>
